@@ -3,6 +3,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import axios from 'axios';
 import * as Network from 'expo-network';
+import { BASE_URL } from '../../config/config';
 
 
 const SignUp = ({navigation}) => {
@@ -28,7 +29,7 @@ const SignUp = ({navigation}) => {
        
         try {
             //  console.log(name, email, password, 'cccccccccccc');
-            const res = await axios.post('http://192.168.88.151:7000/auth/signup', {
+            const res = await axios.post(`${BASE_URL}/auth/signup`, {
                 name: name,
                 email:email,
                 password:password
